@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,15 +62,16 @@
         }
 
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 8px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            color: white;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .logo:hover .logo-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .nav-links {
@@ -193,7 +195,8 @@
             line-height: 1.8;
         }
 
-        ul, ol {
+        ul,
+        ol {
             margin-left: 1.5rem;
             margin-bottom: 1rem;
         }
@@ -261,6 +264,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -271,6 +275,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -304,11 +309,69 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
             <a href="#" class="logo">
-                <div class="logo-icon">📱</div>
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ffffff" />
+                                <stop offset="100%" stop-color="#f8fafc" />
+                            </linearGradient>
+                            <linearGradient id="tlGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#5fa0ff" />
+                                <stop offset="100%" stop-color="#4a84f4" />
+                            </linearGradient>
+                            <linearGradient id="trGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#3ddcf9" />
+                                <stop offset="100%" stop-color="#1db0e5" />
+                            </linearGradient>
+                            <linearGradient id="blGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ad56f8" />
+                                <stop offset="100%" stop-color="#8c3ae5" />
+                            </linearGradient>
+                            <linearGradient id="brGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#5af48b" />
+                                <stop offset="100%" stop-color="#3cc668" />
+                            </linearGradient>
+                            <filter id="gridShadow" x="-10%" y="-10%" width="120%" height="130%">
+                                <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000"
+                                    flood-opacity="0.12" />
+                            </filter>
+                            <filter id="iconShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000"
+                                    flood-opacity="0.2" />
+                            </filter>
+                        </defs>
+                        <rect width="512" height="512" fill="url(#bgGrad)" rx="112" />
+                        <path
+                            d="M 136 56 L 80 56 A 24 24 0 0 0 56 80 L 56 136 M 376 56 L 432 56 A 24 24 0 0 1 456 80 L 456 136 M 456 376 L 456 432 A 24 24 0 0 1 432 456 L 376 456 M 56 376 L 56 432 A 24 24 0 0 0 80 456 L 136 456"
+                            fill="none" stroke="#cbd5e1" stroke-width="16" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <g filter="url(#gridShadow)">
+                            <path d="M 256 112 L 256 256 L 112 256 L 112 160 A 48 48 0 0 1 160 112 Z"
+                                fill="url(#tlGrad)" />
+                            <path d="M 256 112 L 352 112 A 48 48 0 0 1 400 160 L 400 256 L 256 256 Z"
+                                fill="url(#trGrad)" />
+                            <path d="M 256 256 L 400 256 L 400 352 A 48 48 0 0 1 352 400 L 256 400 Z"
+                                fill="url(#brGrad)" />
+                            <path d="M 112 256 L 256 256 L 256 400 L 160 400 A 48 48 0 0 1 112 352 Z"
+                                fill="url(#blGrad)" />
+                        </g>
+                        <g fill="#ffffff" filter="url(#iconShadow)">
+                            <circle cx="184" cy="184" r="32" />
+                            <rect x="296" y="152" width="64" height="64" rx="8" />
+                            <path d="M 184 294 L 213 344 L 155 344 Z" stroke="#ffffff" stroke-width="6"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M 328 284 Q 328 328 372 328 Q 328 328 328 372 Q 328 328 284 328 Q 328 328 328 284 Z"
+                                stroke="#ffffff" stroke-width="4" stroke-linejoin="round" />
+                        </g>
+                    </svg>
+                </div>
                 QR Barcode & Document Scanner
             </a>
             <ul class="nav-links">
@@ -348,21 +411,27 @@
         <section id="intro">
             <h2>Introduction</h2>
             <p>
-                This privacy policy applies to the <span class="highlight">QR Barcode & Document Scanner</span> (hereby referred to as "Application") for mobile devices that was created by <span class="highlight">Tech Enforcers</span> (hereby referred to as "Service Provider") as a Free service. This service is intended for use "AS IS".
+                This privacy policy applies to the <span class="highlight">QR Barcode & Document Scanner</span> (hereby
+                referred to as "Application") for mobile devices that was created by <span class="highlight">Tech
+                    Enforcers</span> (hereby referred to as "Service Provider") as a Free service. This service is
+                intended for use "AS IS".
             </p>
             <p>
-                We are committed to protecting your privacy and ensuring you have a positive experience on our Application. This Privacy Policy explains our information practices and the choices you can make about the way your information is collected and used.
+                We are committed to protecting your privacy and ensuring you have a positive experience on our
+                Application. This Privacy Policy explains our information practices and the choices you can make about
+                the way your information is collected and used.
             </p>
         </section>
 
         <section id="information">
             <h2>Information Collection and Use</h2>
-            
+
             <h3>Automatically Collected Information</h3>
             <p>The Application collects the following information when you download and use it:</p>
             <ul>
                 <li>Your device's Internet Protocol address (IP address)</li>
-                <li>The pages of the Application that you visit, the time and date of your visits, and the time spent on those pages</li>
+                <li>The pages of the Application that you visit, the time and date of your visits, and the time spent on
+                    those pages</li>
                 <li>The total time spent using the Application</li>
                 <li>The operating system and device model you use on your mobile device</li>
                 <li>Your device's unique identifier (such as Android ID or IDFA)</li>
@@ -371,12 +440,16 @@
 
             <h3>Location Information</h3>
             <p>
-                <strong>Important:</strong> The Application <strong>does not</strong> gather precise information about the location of your mobile device. We do not collect GPS data, network-based location, or any other location-based information without your explicit consent.
+                <strong>Important:</strong> The Application <strong>does not</strong> gather precise information about
+                the location of your mobile device. We do not collect GPS data, network-based location, or any other
+                location-based information without your explicit consent.
             </p>
 
             <h3>QR Code and Document Scanning Data</h3>
             <p>
-                The data you scan (QR codes, document content, etc.) is <strong>processed locally on your device</strong>. We do not store the content of scanned QR codes or documents on our servers. Any data you generate within the Application remains under your control.
+                The data you scan (QR codes, document content, etc.) is <strong>processed locally on your
+                    device</strong>. We do not store the content of scanned QR codes or documents on our servers. Any
+                data you generate within the Application remains under your control.
             </p>
 
             <h3>How We Use Your Information</h3>
@@ -393,15 +466,18 @@
 
         <section id="third-party">
             <h2>Third Party Access</h2>
-            
+
             <h3>Aggregated and Anonymized Data</h3>
             <p>
-                Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their services. This data cannot identify you personally.
+                Only aggregated, anonymized data is periodically transmitted to external services to aid the Service
+                Provider in improving the Application and their services. This data cannot identify you personally.
             </p>
 
             <h3>Third-Party Service Providers</h3>
             <p>
-                The Service Provider may share your information with third parties in the ways described in this statement. The Application utilizes the following third-party services that have their own Privacy Policies:
+                The Service Provider may share your information with third parties in the ways described in this
+                statement. The Application utilizes the following third-party services that have their own Privacy
+                Policies:
             </p>
             <ul>
                 <li><a href="https://policies.google.com/privacy" target="_blank">Google Play Services</a></li>
@@ -411,24 +487,35 @@
             </ul>
 
             <h3>When We May Disclose Your Information</h3>
-            <p>The Service Provider may disclose User Provided and Automatically Collected Information in the following circumstances:</p>
+            <p>The Service Provider may disclose User Provided and Automatically Collected Information in the following
+                circumstances:</p>
             <ul>
-                <li><strong>Legal Requirements:</strong> When required by law, such as to comply with a subpoena, court order, or similar legal process</li>
-                <li><strong>Protection of Rights:</strong> When we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request</li>
-                <li><strong>Trusted Service Providers:</strong> With our trusted service providers who work on our behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement</li>
-                <li><strong>Business Transfers:</strong> In connection with any merger, sale of company assets, bankruptcy, or other business transaction</li>
+                <li><strong>Legal Requirements:</strong> When required by law, such as to comply with a subpoena, court
+                    order, or similar legal process</li>
+                <li><strong>Protection of Rights:</strong> When we believe in good faith that disclosure is necessary to
+                    protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a
+                    government request</li>
+                <li><strong>Trusted Service Providers:</strong> With our trusted service providers who work on our
+                    behalf, do not have an independent use of the information we disclose to them, and have agreed to
+                    adhere to the rules set forth in this privacy statement</li>
+                <li><strong>Business Transfers:</strong> In connection with any merger, sale of company assets,
+                    bankruptcy, or other business transaction</li>
             </ul>
 
             <div class="info-box">
                 <strong>Third-Party Links:</strong>
-                The Application may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. Please review their privacy policies before providing personal information.
+                The Application may contain links to third-party websites. We are not responsible for the privacy
+                practices of these external sites. Please review their privacy policies before providing personal
+                information.
             </div>
         </section>
 
         <section id="opt-out">
             <h2>Opt-Out Rights</h2>
             <p>
-                You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes available on your mobile device or via the mobile application marketplace (Google Play Store, etc.).
+                You can stop all collection of information by the Application easily by uninstalling it. You may use the
+                standard uninstall processes available on your mobile device or via the mobile application marketplace
+                (Google Play Store, etc.).
             </p>
             <p>
                 Additionally, you can limit data collection by:
@@ -443,29 +530,39 @@
         <section id="data-retention">
             <h2>Data Retention Policy</h2>
             <p>
-                The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. This allows us to maintain service continuity and resolve any outstanding issues.
+                The Service Provider will retain User Provided data for as long as you use the Application and for a
+                reasonable time thereafter. This allows us to maintain service continuity and resolve any outstanding
+                issues.
             </p>
             <p>
-                If you'd like the Service Provider to delete User Provided Data that you have provided via the Application, please contact them at:
+                If you'd like the Service Provider to delete User Provided Data that you have provided via the
+                Application, please contact them at:
             </p>
             <p style="margin-left: 1.5rem; font-weight: 500;">
                 📧 <a href="mailto:techenforcersofficial@gmail.com">techenforcersofficial@gmail.com</a>
             </p>
             <p>
-                The Service Provider will respond to your request in a reasonable time, typically within 30 days. Please note that deleting your data may impact your ability to use certain features of the Application.
+                The Service Provider will respond to your request in a reasonable time, typically within 30 days. Please
+                note that deleting your data may impact your ability to use certain features of the Application.
             </p>
         </section>
 
         <section id="children">
             <h2>Children</h2>
             <p>
-                The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13. The Application is not intended for use by children under 13 years of age.
+                The Service Provider does not use the Application to knowingly solicit data from or market to children
+                under the age of 13. The Application is not intended for use by children under 13 years of age.
             </p>
             <p>
-                We do not knowingly collect personally identifiable information from children under 13 years of age. In the event that the Service Provider discovers that a child under 13 has provided personal information, we will immediately delete this information from our servers and discontinue data collection from that child.
+                We do not knowingly collect personally identifiable information from children under 13 years of age. In
+                the event that the Service Provider discovers that a child under 13 has provided personal information,
+                we will immediately delete this information from our servers and discontinue data collection from that
+                child.
             </p>
             <p>
-                <strong>For Parents and Guardians:</strong> If you are a parent or guardian and you are aware that your child has provided us with personal information, or if you have concerns about our collection practices, please contact the Service Provider immediately at:
+                <strong>For Parents and Guardians:</strong> If you are a parent or guardian and you are aware that your
+                child has provided us with personal information, or if you have concerns about our collection practices,
+                please contact the Service Provider immediately at:
             </p>
             <p style="margin-left: 1.5rem; font-weight: 500;">
                 📧 <a href="mailto:techenforcersofficial@gmail.com">techenforcersofficial@gmail.com</a>
@@ -475,7 +572,8 @@
         <section id="security">
             <h2>Security</h2>
             <p>
-                The Service Provider is concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain.
+                The Service Provider is concerned about safeguarding the confidentiality of your information. We provide
+                physical, electronic, and procedural safeguards to protect information we process and maintain.
             </p>
             <p>
                 Security measures include:
@@ -486,14 +584,17 @@
                 <li>Restricted access to personal information on a need-to-know basis</li>
             </ul>
             <p>
-                However, no security system is impenetrable. While we strive to protect your information, we cannot guarantee absolute security. Use the Application at your own risk.
+                However, no security system is impenetrable. While we strive to protect your information, we cannot
+                guarantee absolute security. Use the Application at your own risk.
             </p>
         </section>
 
         <section id="changes">
             <h2>Changes to This Policy</h2>
             <p>
-                This Privacy Policy may be updated from time to time for any reason, including to reflect changes in our practices, technology, legal requirements, or other factors. The Service Provider will notify you of any significant changes to the Privacy Policy by:
+                This Privacy Policy may be updated from time to time for any reason, including to reflect changes in our
+                practices, technology, legal requirements, or other factors. The Service Provider will notify you of any
+                significant changes to the Privacy Policy by:
             </p>
             <ul>
                 <li>Updating this page with the new Privacy Policy</li>
@@ -501,32 +602,41 @@
                 <li>Notifying you via email (if you have provided an email address)</li>
             </ul>
             <p>
-                You are advised to consult this Privacy Policy regularly for any changes. <strong>Continued use of the Application following the posting of revised Privacy Policy terms means that you accept and agree to the changes.</strong>
+                You are advised to consult this Privacy Policy regularly for any changes. <strong>Continued use of the
+                    Application following the posting of revised Privacy Policy terms means that you accept and agree to
+                    the changes.</strong>
             </p>
         </section>
 
         <section id="consent">
             <h2>Your Consent</h2>
             <p>
-                By downloading, installing, and using the Application, you are consenting to the collection and use of your information as set forth in this Privacy Policy. If you do not agree with our privacy practices, please do not use the Application.
+                By downloading, installing, and using the Application, you are consenting to the collection and use of
+                your information as set forth in this Privacy Policy. If you do not agree with our privacy practices,
+                please do not use the Application.
             </p>
             <p>
-                Your continued use of the Application constitutes your acceptance of this Privacy Policy and any updates thereto.
+                Your continued use of the Application constitutes your acceptance of this Privacy Policy and any updates
+                thereto.
             </p>
         </section>
 
         <section id="contact">
             <h2>Contact Us</h2>
             <p>
-                If you have any questions regarding privacy while using the Application, or have questions about our practices, please contact the Service Provider via email:
+                If you have any questions regarding privacy while using the Application, or have questions about our
+                practices, please contact the Service Provider via email:
             </p>
             <div class="info-box">
-                <strong>Email:</strong> <a href="mailto:techenforcersofficial@gmail.com">techenforcersofficial@gmail.com</a><br>
+                <strong>Email:</strong> <a
+                    href="mailto:techenforcersofficial@gmail.com">techenforcersofficial@gmail.com</a><br>
                 <strong>Service Provider:</strong> Tech Enforcers<br>
                 <strong>Application Name:</strong> QR Barcode & Document Scanner
             </div>
             <p>
-                We appreciate your privacy concerns and will respond to any inquiries in a timely manner. If you are not satisfied with our response, you may have the right to lodge a complaint with your local data protection authority.
+                We appreciate your privacy concerns and will respond to any inquiries in a timely manner. If you are not
+                satisfied with our response, you may have the right to lodge a complaint with your local data protection
+                authority.
             </p>
         </section>
     </div>
@@ -552,4 +662,5 @@
         });
     </script>
 </body>
+
 </html>
